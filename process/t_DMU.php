@@ -8,7 +8,7 @@
 		$query = mysqli_query($conn, 'SELECT * FROM tb_detail_dmu WHERE id_klinik='.$id_klinik.'');
 		if (mysqli_num_rows($query) > 0) {
 			// Ditemukan cabang klinik yang dipilih telah terdaftar
-			header('Location: ../tambah_DMU.php?balasan=1&out="'.$variabel.'"');
+			header('Location: ../tambah_DMU.php?balasan=1');
 		} else {
 			$query1 = mysqli_query($conn, "SELECT * FROM tb_variabel");
 			if (mysqli_num_rows($query1) > 0) {
@@ -30,7 +30,7 @@
 			} else {
 				header('Location: ../kelola_DMU.php?balasan=2');
 			}
-			header('Location: ../kelola_DMU.php?balasan=1&out= "'.$variabel.'"');
+			header('Location: ../kelola_DMU.php?balasan=1');
 		}
 	} else {
 		header('Location: ../kelola_DMU.php?balasan=2');

@@ -27,13 +27,13 @@
 						      <div class="col-md-10">
 						        <div class="radio">
 						          <label>
-						            <input name="radiobtn" id="" value="Input" checked="" type="radio">
+						            <input name="radio_jns" id="" value="Input" checked="" type="radio">
 						            Input
 						          </label>
 						        </div>
 						        <div class="radio">
 						          <label>
-						            <input name="radiobtn" id="" value="Output" type="radio">
+						            <input name="radio_jns" id="" value="Output" type="radio">
 						            Output
 						          </label>
 						        </div>

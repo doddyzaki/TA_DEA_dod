@@ -6,6 +6,9 @@
 	margin:0 auto;
 }
 
+th,tr,td{
+  text-align: center;
+}
 
 
 /* Form */
