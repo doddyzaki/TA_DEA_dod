@@ -2,7 +2,7 @@
 	<!-- div kolom isi -->
 	<div class="col-md-6">
 		<!-- div panel -->
-		<div class="panel panel-success">
+		<div class="panel panel-primary">
 			<div class="panel-heading">
 				    <h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> Kelola Pengguna</h3>
 			</div> <!-- end div panel heading -->
@@ -10,6 +10,11 @@
 					<form class="form-horizontal" method="post" action="process/t_pengguna.php">
 						<fieldset>
 							<legend>Tambah Pengguna</legend>
+							<?php
+						    	if (ISSET($_GET['balasan']) AND ($_GET['balasan']==1)) {
+				  			  	echo '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><span class="glyphicon glyphicon-exclamation-sign"></span> <strong>Cabang</strong> sudah terdaftar. Silahkan gunakan <strong>cabang</strong> lain</div>';
+				  			  	}
+						    ?>
 							<div class="form-group">
 						  		<label class="col-md-2 control-label" for="">Nama</label>
 						  		<div class="col-md-6">

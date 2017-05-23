@@ -1,48 +1,86 @@
 <?php include 'layout.php'; ?>
 			<div class="col-md-9">
-				<div class="panel panel-success">
+				<div class="panel panel-primary">
 				  <div class="panel-heading">
-				    <h3 class="panel-title"><span class="glyphicon glyphicon-home"></span> Hasil Perhitungan Efisiensi</h3>
+				    <h3 class="panel-title"><span class="glyphicon glyphicon-tasks"></span> Hasil Perhitungan Efisiensi</h3>
 				  </div>
 				  <div class="panel-body">
-					<table class="table table-striped table-hover table-bordered">
-					  <thead>
-					    <tr>
-					      <th>No</th>
-					      <th>DMU</th>
-					      <th>Nilai Efisiensi</th>
-					      <th>Rekomendasi</th>
-					    </tr>
-					  </thead>
-					  <tbody>
-					    <tr>
-					      <td>1</td>
-					      <td>Setiabudi</td>
-					      <td>0.6</td>
-					      <td><ul><b>Belum Optimal</b>
-					      	<li>Dokter awal 4 orang ,direkomendasikan menjadi 6 orang</li>
-							<li>Perawat awal 7 orang ,direkomendasikan menjadi 7 orang</li>
-							<li>Staff Non-Medis awal 2 orang ,direkomendasikan menjadi 0 orang</li>
-							<li>Pasien awal 719 orang ,direkomendasikan menjadi 456 orang</li> 
-							<li>Laba awal 51 juta ,direkomendasikan menjadi 55 juta</li>
-							<li>Gaji awal 17 juta ,direkomendasikan menjadi 17 juta</li>
-							</ul>
-					      </td>
-					    </tr>
-					    <tr>
-					      <td>2</td>
-					      <td>Kalipancur</td>
-					      <td>1</td>
-					      <td><b>Sudah Optimal</b></td>
-					    </tr>
-					    <tr>
-					      <td>3</td>
-					      <td>Kedungmundu</td>
-					      <td>1</td>
-					      <td><b>Sudah Optimal</b></td>
-					    </tr>
-					  </tbody>
-					</table> 
+					<!-- Form validations -->              
+              <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Perhitungan Efisiensi
+                          </header>
+                          <div class="panel-body">
+                              <div class="table-responsive">
+								<table class="table table-bordered" id="example1">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>DMU</th>
+                                            <th>Nilai Efisiensi</th>
+											<th>Rekomendasi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+									<?php
+									include 'connect_db.php';
+									
+									//Assign a query
+									$query = "SELECT e.*, d.nama_dmu FROM tb_perhitungan_efisiensi e, tb_klinik d WHERE d.id_klinik = e.id_dmu ORDER BY d.id_dmu ASC";
+									$i = 1;
+									$result = $db->query($query);
+									while($row = $result->fetch_object()){
+										if($row->nilai_efisiensi >= 0.95){
+											$a = '<b>Sudah Efisien</b>';
+										}else{
+											$a = '<b>Belum Efisien</b>'.','.'  '.$row->rekomendasi;
+										}
+										echo '<tr>';
+										echo '<td>'.$i.'</td>';
+										echo '<td>'.$row->nama_dmu.'</td>';
+										echo '<td>'.$row->nilai_efisiensi.'</td>';
+										echo '<td>'.$a.'</td>';
+										echo '</tr>';
+										$i++;
+									}
+										echo '</table>';
+										echo '<br />';
+										$result->free();
+									?>
+									</tbody>
+								</table>
+							  </div>
+							  <!-- /.table-responsive -->
+						  </div>	  
+              <!-- page end-->
+          </section>
+      </section>
+  </section>
+  <!-- container section end -->
+
+    <!-- javascripts -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- nice scroll -->
+    <script src="js/jquery.scrollTo.min.js"></script>
+    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+    <!-- jquery validate js -->
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+
+    <!-- custom form validation script for this page-->
+    <script src="js/form-validation-script.js"></script>
+    <!--custome script for all page-->
+    <script src="js/scripts.js"></script>
+	<script src="asset/datatables/jquery.dataTables.min.js"></script>
+	<script src="asset/datatables/dataTables.bootstrap.min.js"></script>
+	<link rel="stylesheet" href="asset/datatables/dataTables.bootstrap.css">
+	<script type="text/javascript">
+		  $(function () {
+			$("#example1").DataTable();
+		  });
+		  </script>
 				  </div>
 				</div>
 			</div>

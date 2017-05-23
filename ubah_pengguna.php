@@ -15,14 +15,14 @@
 	<!-- div kolom isi -->
 	<div class="col-md-6">
 		<!-- div panel -->
-		<div class="panel panel-success">
+		<div class="panel panel-primary">
 			<div class="panel-heading">
 				    <h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> Kelola Pengguna</h3>
 			</div> <!-- end div panel heading -->
 			  	<div class="panel-body">
 					<form class="form-horizontal" method="post" action="<?php echo "process/u_pengguna.php?id=".$id.""; ?>">
 						<fieldset>
-							<legend>Ubah Pengguna</legend>
+							<legend>Ubah Data Pengguna</legend>
 							<div class="form-group">
 						  		<label class="col-md-2 control-label" for="">Nama</label>
 						  		<div class="col-md-6">

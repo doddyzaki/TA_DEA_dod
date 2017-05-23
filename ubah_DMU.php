@@ -3,14 +3,14 @@
 	$id = $_GET['id'];
 ?>
 				<div class="col-sm-9">
-					<div class="panel panel-success">
+					<div class="panel panel-primary">
 						<div class="panel-heading">
 							<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> Mengelola DMU</h3>
 						</div>
 						<div class="panel-body">			
 							<form class="form-horizontal" method="post" action="<?php echo "process/u_dmu.php?id=".$id.""; ?>">
 								<fieldset>
-								    <legend>Ubah DMU</legend>
+								    <legend>Ubah Data DMU</legend>
 								    <div class="form-group">
 								      	<label class="col-sm-4 control-label">Nama</label>
 								      	<div class="col-sm-6">

@@ -1,6 +1,6 @@
 <?php include 'layout.php'; ?>
 	<div class="col-sm-9">
-		<div class="panel panel-success">
+		<div class="panel panel-primary">
 		  	<div class="panel-heading">
 		    	<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> Mengelola DMU</h3>
 		  	</div>
@@ -8,7 +8,21 @@
 			  	<div class="col-sm-12">
 			  		<legend>Daftar DMU</legend>
 			  		<?php
-			  			
+			  			if (ISSET($_GET['balasan'])) {
+				  			if ($_GET['balasan']==1) {
+				  			  	echo '<div class="alert alert-dismissible alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button><span class="glyphicon glyphicon-ok"></span> Data berhasil ditambahkan</div>';
+				  			} elseif ($_GET['balasan']==2) {
+				  			  	echo '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><span class="glyphicon glyphicon-exclamation-sign"></span> Kesalahan telah terjadi</div>';
+				  			} elseif ($_GET['balasan']==3) {
+				  			  	echo '<div class="alert alert-dismissible alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button><span class="glyphicon glyphicon-ok"></span> Data berhasil dihapus</div>';
+				  			} elseif ($_GET['balasan']==4) {
+				  			  	echo '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><span class="glyphicon glyphicon-exclamation-sign"></span> Gagal menghapus data Variabel</div>';
+				  			} elseif ($_GET['balasan']==5) {
+				  			  	echo '<div class="alert alert-dismissible alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button><span class="glyphicon glyphicon-ok"></span> Data berhasil diubah</div>';
+				  			} elseif ($_GET['balasan']==6) {
+				  			  	echo '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><span class="glyphicon glyphicon-exclamation-sign"></span> Gagal mengubah data</div>';
+				  			}
+				  		}
 			  			
 			  			// Menghitung jumlah var input dan output
 						$query = mysqli_query($conn, "SELECT * FROM tb_variabel ORDER BY jenis_variabel ASC, id_variabel ASC");
@@ -55,7 +69,7 @@
 										$id_klinik = $cabang['id_klinik'];
 
 										// Variabel Input
-										$query_input = mysqli_query($conn, 'SELECT d.nilai_variabel FROM tb_detail_dmu AS d, tb_variabel AS v WHERE d.id_variabel=v.id_variabel AND id_klinik='.$id_klinik.' AND v.jenis_variabel="Input" ORDER BY v.jenis_variabel ASC, d.id_variabel');
+										$query_input = mysqli_query($conn, 'SELECT d.nilai_variabel FROM tb_detail_dmu AS d, tb_variabel AS v WHERE d.id_variabel=v.id_variabel AND id_klinik ='.$id_klinik.' AND v.jenis_variabel="Input" ORDER BY v.jenis_variabel ASC, d.id_variabel ASC');
 										$count = 0;
 										if (mysqli_num_rows($query_input)) {
 											while ($nilai_var = mysqli_fetch_assoc($query_input)) {

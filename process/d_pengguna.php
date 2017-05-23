@@ -3,8 +3,8 @@
 	$id = $_GET['id'];
 	$query = 'DELETE FROM tb_pengguna WHERE id_pengguna='.$id.'';
 	if (mysqli_query($conn, $query)) {
-	    header('Location: ../kelola_pengguna.php?balasan=1');
+	    header('Location: ../kelola_pengguna.php?balasan=3');
 	} else {
-	    header('Location: ../kelola_pengguna.php?balasan=2');
+	    header('Location: ../kelola_pengguna.php?balasan=4');
 	}
 ?>

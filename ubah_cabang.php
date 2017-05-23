@@ -5,22 +5,27 @@
 	if (mysqli_num_rows($query) > 0) {
 		// output data of each row
 		while($cabang = mysqli_fetch_assoc($query)) {
-			$cabang_target = $cabang['cabang_klinik'];
-			$alamat_target = $cabang['alamat'];
+			$cabang_target = trim($cabang['cabang_klinik']);
+			$alamat_target = trim($cabang['alamat']);
 		}
 	}
 ?>
 	<!-- div kolom isi -->
 	<div class="col-md-6">
 		<!-- div panel -->
-		<div class="panel panel-success">
+		<div class="panel panel-primary">
 			<div class="panel-heading">
 				    <h3 class="panel-title"><span class="glyphicon glyphicon-globe"></span> Kelola Cabang</h3>
 			</div> <!-- end div panel heading -->
 			  	<div class="panel-body">
 					<form class="form-horizontal" method="post" action="<?php echo "process/u_cabang.php?id=".$id.""; ?>">
 						<fieldset>
-							<legend>Tambah Cabang</legend>
+							<legend>Ubah Data Cabang</legend>
+							<?php
+						    	if (ISSET($_GET['balasan']) AND ($_GET['balasan']==1)) {
+				  			  	echo '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><span class="glyphicon glyphicon-exclamation-sign"></span> <strong>Cabang</strong> sudah terdaftar. Silahkan gunakan <strong>cabang</strong> lain</div>';
+				  			  	}
+						    ?>
 							<div class="form-group">
 						  		<label class="col-md-2 control-label" for="">Nama</label>
 						  		<div class="col-md-6">
