@@ -25,37 +25,58 @@
 							<div class="form-group">
 						  		<label class="col-md-2 control-label" for="">Nama</label>
 						  		<div class="col-md-6">
-						    		<input class="form-control" id="" name="nama_variabel" type="text" placeholder="Nama Variabel" value="<?php echo $namavar_target; ?>">
+						    		<input class="form-control" id="" name="nama_variabel" type="text" placeholder="Nama Variabel" value="<?php echo $namavar_target; ?>" required>
 						  		</div>
 							</div>
 							<div class="form-group">
 						  		<label class="col-md-2 control-label" for="">Satuan</label>
 						  		<div class="col-md-6">
-						    		<input class="form-control" id="" name="satuan" type="text" placeholder="Satuan dari nilai Variabel. Misal: Orang" value="<?php echo $satuan_target; ?>">
+						    		<input class="form-control" id="" name="satuan" type="text" placeholder="Satuan dari nilai Variabel. Misal: Orang" value="<?php echo $satuan_target; ?>" required>
 						  		</div>
 							</div>
 							<div class="form-group">
-						      <label class="col-md-2 control-label">Tipe</label>
-						      <div class="col-md-10">
-						        <div class="radio">
-						          <label>
-						            <input name="radiobtn" id="" value="Input" checked="" type="radio">
-						            Input
-						          </label>
-						        </div>
-						        <div class="radio">
-						          <label>
-						            <input name="radiobtn" id="" value="Output" type="radio">
-						            Output
-						          </label>
-						        </div>
-						      </div>
+						      	<label class="col-md-2 control-label">Tipe</label>
+						      	<div class="col-md-10">
+							    <?php 
+							      	if ($jenisvar_target == 'Input') {
+							      		echo ' <div class="radio">
+										          <label>
+										            <input name="radiobtn" id="" value="Input" checked type="radio">
+										            Input
+										          </label>
+										        </div>
+
+										        <div class="radio">
+										          <label>
+										            <input name="radiobtn" id="" value="Output" type="radio">
+										            Output
+										          </label>
+										        </div>
+							        	';
+							      	} else {
+							      		echo '	
+							      				<div class="radio">
+										          <label>
+										            <input name="radiobtn" id="" value="Input" type="radio">
+										            Input
+										          </label>
+										        </div>
+
+							      				<div class="radio">
+										          <label>
+										            <input name="radiobtn" id="" value="Output" checked type="radio">
+										            Output
+										          </label>
+										        </div>
+							        	';
+							      	}
+							    ?>						        
+						      	</div>
 						    </div>
 						    <br>
 							<div class="form-group">
 							  	<div class="col-md-4 col-md-offset-2">
-									<button class="btn btn-danger" type="reset">Cancel</button>
-								    <button class="btn btn-success" name="simpan" type="submit">Submit</button>
+								    <button class="btn btn-success" name="simpan" type="submit">Simpan</button>
 							  	</div>
 							</div>
 						</fieldset>
@@ -63,4 +84,4 @@
 			  	</div> <!-- end div panel body -->
 		</div> <!-- end div panel -->
 	</div> <!-- end div kolom isi -->
-<?php include 'footer.php'; ?>
+<?php include 'closing.php'; ?>

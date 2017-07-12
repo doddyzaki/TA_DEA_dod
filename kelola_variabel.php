@@ -1,12 +1,13 @@
 <?php include 'layout.php'; ?>
 	<!-- div kolom isi -->
-	<div class="col-md-6">
+	<div class="col-md-9">
 		<!-- div panel -->
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				    <h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> Kelola Variabel</h3>
 			</div> <!-- end div panel heading -->
 			  	<div class="panel-body">
+			  		<legend>Daftar Variabel</legend>
 			  	<?php
 			  		if (ISSET($_GET['balasan'])) {
 			  			if ($_GET['balasan']==1) {
@@ -37,7 +38,7 @@
 					  <tbody>
 					    <?php
 					    	$i=1;
-					    	$query= mysqli_query($conn,"SELECT * FROM tb_variabel ORDER BY id_variabel ASC");
+					    	$query= mysqli_query($conn,"SELECT * FROM tb_variabel ORDER BY jenis_variabel, id_variabel ASC");
 					    	if(mysqli_num_rows($query)>0){
 					    		while ($variabel = mysqli_fetch_assoc($query)) {
 					    			echo '<tr>
@@ -61,4 +62,4 @@
 			  	</div> <!-- end div panel body -->
 		</div> <!-- end div panel -->
 	</div> <!-- end div kolom isi -->
-<?php include 'footer.php'; ?>
+<?php include 'closing.php'; ?>

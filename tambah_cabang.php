@@ -1,6 +1,6 @@
 <?php include 'layout.php'; ?>
 	<!-- div kolom isi -->
-	<div class="col-md-6">
+	<div class="col-md-9">
 		<!-- div panel -->
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -17,22 +17,20 @@
 						    ?>
 
 							<div class="form-group">
-						  		<label class="col-md-2 control-label" for="">Nama</label>
-						  		<div class="col-md-6">
-						    		<input class="form-control" id="" name="cabang_klinik" type="text" placeholder="Cabang Klinik. Misal: Gayamsari">
+						  		<label class="col-md-2 col-md-offset-2 control-label" for="">Nama Cabang</label>
+						  		<div class="col-md-4">
+						    		<input class="form-control" id="" name="cabang_klinik" type="text" placeholder="Panjang maksimal 30 karakter." maxlength="30" required>
 						  		</div>
 							</div>
 							<div class="form-group">
-						      <label for="textArea" class="col-md-2 control-label">Alamat</label>
-						      <div class="col-md-6">
-						        <textarea class="form-control" rows="1" name="alamat" id="textArea" placeholder="Alamat"></textarea>
+						      <label for="textArea" class="col-md-2 col-md-offset-2 control-label">Alamat</label>
+						      <div class="col-md-4">
+						        <textarea class="form-control" rows="1" name="alamat" id="textArea" placeholder="Alamat" required></textarea>
 						        <span class="help-block"></span>
 						      </div>
 						    </div>
-						    <br>
 							<div class="form-group">
-							  	<div class="col-md-4 col-md-offset-2">
-									<button class="btn btn-danger" type="reset">Cancel</button>
+							  	<div class="col-md-4 col-md-offset-4">
 								    <button class="btn btn-success" name="simpan" type="submit">Submit</button>
 							  	</div>
 							</div>
@@ -41,4 +39,4 @@
 			  	</div> <!-- end div panel body -->
 		</div> <!-- end div panel -->
 	</div> <!-- end div kolom isi -->
-<?php include 'footer.php'; ?>
+<?php include 'closing.php'; ?>

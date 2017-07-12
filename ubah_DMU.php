@@ -41,11 +41,12 @@
 											$name =	 str_replace(' ','_',$var['nama_variabel']);
 											$satuan = $var['satuan'];
 											$value = $var["nilai_variabel"];
-											if (($var['jenis_variabel'] == 'i') AND ($input == 0)) {
-												echo '<div class="form-group"><legend class="col-sm-8 col-sm-offset-2">Variabel Input</legend></div>';
+											if (($var['jenis_variabel'] == 'Input') AND ($input == 0)) {
+												echo '<div class="form-group"><span class="label label-info center-block"><h5>Variabel Input</h5></span>
+													</div>';
 													$input = 1;
-											} elseif (($var['jenis_variabel'] == 'o') AND ($output == 0)) {
-												echo '<div class="form-group"><legend class="col-sm-8 col-sm-offset-2">Variabel Output</legend></div>';
+											} elseif (($var['jenis_variabel'] == 'Output') AND ($output == 0)) {
+												echo '<div class="form-group"><span class="label label-danger center-block"><h5>Variabel Output</h5></span></div>';
 													$output = 1;
 											}
 											echo '
@@ -60,8 +61,7 @@
 									?>
 								    <div class="form-group">
 								      	<div class="col-sm-6 col-sm-offset-4">
-								        	<button type="submit" class="btn btn-default">Simpan</button>
-								        	<button type="reset" class="btn btn-primary">Kosongkan</button>
+								        	<button type="submit" class="btn btn-success">Simpan</button>
 								      	</div>
 								    </div>
 								</fieldset>
@@ -69,4 +69,4 @@
 						</div>
 					</div>
 				</div> <!-- End of Main Content (Second col-sm-9) -->
-<?php include 'footer.php' ?>
+<?php include 'closing.php' ?>

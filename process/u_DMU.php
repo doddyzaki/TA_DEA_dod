@@ -2,7 +2,6 @@
 	include 'connect_db.php';
 	if (ISSET($_GET['id'])) {
 		$id = $_GET['id']; // Id baris data yang dipilih untuk diubah
-		//$id_klinik = $_POST['id_klinik']; // Id klinik dari form dropdown
 
 		$query = "SELECT * FROM tb_variabel";
 		if (mysqli_query($conn, $query)) {
@@ -21,7 +20,4 @@
 	} else {
 		header('Location: ../kelola_dmu.php?balasan=6');
 	}
-	
-		
-	
 ?>

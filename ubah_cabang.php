@@ -11,7 +11,7 @@
 	}
 ?>
 	<!-- div kolom isi -->
-	<div class="col-md-6">
+	<div class="col-md-9">
 		<!-- div panel -->
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -27,22 +27,21 @@
 				  			  	}
 						    ?>
 							<div class="form-group">
-						  		<label class="col-md-2 control-label" for="">Nama</label>
-						  		<div class="col-md-6">
-						    		<input class="form-control" id="" name="cabang_klinik" type="text" placeholder="Cabang Klinik. Misal: Gayamsari" value="<?php echo $cabang_target; ?>">
+						  		<label class="col-md-2 col-md-offset-2 control-label" for="">Nama</label>
+						  		<div class="col-md-4">
+						    		<input class="form-control" id="" name="cabang_klinik" type="text" placeholder="Cabang Klinik. Misal: Gayamsari" value="<?php echo $cabang_target; ?>" required>
 						  		</div>
 							</div>
 							<div class="form-group">
-						  		<label class="col-md-2 control-label" for="">Alamat</label>
-						  		<div class="col-md-6">
-						    		<input class="form-control" id="" name="alamat" type="text" placeholder="Alamat" value="<?php echo $alamat_target; ?>">
+						  		<label class="col-md-2 col-md-offset-2 control-label" for="">Alamat</label>
+						  		<div class="col-md-4">
+						    		<input class="form-control" id="" name="alamat" type="text" placeholder="Alamat" value="<?php echo $alamat_target; ?>" required>
 						  		</div>
 							</div>
 						    <br>
 							<div class="form-group">
-							  	<div class="col-md-4 col-md-offset-2">
-									<button class="btn btn-danger" type="reset">Cancel</button>
-								    <button class="btn btn-success" name="simpan" type="submit">Submit</button>
+							  	<div class="col-md-4 col-md-offset-4">
+								    <button class="btn btn-success" name="simpan" type="submit">Simpan</button>
 							  	</div>
 							</div>
 						</fieldset>
@@ -50,4 +49,4 @@
 			  	</div> <!-- end div panel body -->
 		</div> <!-- end div panel -->
 	</div> <!-- end div kolom isi -->
-<?php include 'footer.php'; ?>
+<?php include 'closing.php'; ?>

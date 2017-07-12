@@ -9,9 +9,7 @@
               <div class="row">
                   <div class="col-lg-12">
                       <section class="panel">
-                          <header class="panel-heading">
-                              Perhitungan Efisiensi
-                          </header>
+                          <legend>Perhitungan Efisiensi</legend>
                           <div class="panel-body">
                               <div class="table-responsive">
 								<table class="table table-bordered" id="example1">
@@ -25,29 +23,24 @@
                                     </thead>
                                     <tbody>
 									<?php
-									include 'connect_db.php';
-									
 									//Assign a query
-									$query = "SELECT e.*, d.nama_dmu FROM tb_perhitungan_efisiensi e, tb_klinik d WHERE d.id_klinik = e.id_dmu ORDER BY d.id_dmu ASC";
+									$query = mysqli_query($conn,"SELECT e.*, d.cabang_klinik FROM tb_perhitungan_efisiensi e, tb_klinik d WHERE d.id_klinik = e.id_klinik ORDER BY d.id_klinik ASC");
 									$i = 1;
-									$result = $db->query($query);
-									while($row = $result->fetch_object()){
-										if($row->nilai_efisiensi >= 0.95){
-											$a = '<b>Sudah Efisien</b>';
+									while($z = mysqli_fetch_array($query)){
+										if($z['nilai_efisiensi'] == 1){
+											$y = '<b>Sudah Efisien</b>';
 										}else{
-											$a = '<b>Belum Efisien</b>'.','.'  '.$row->rekomendasi;
+											$y = '<b>Belum Efisien </b>'.','.'   '. $z['rekomendasi'];
 										}
 										echo '<tr>';
 										echo '<td>'.$i.'</td>';
-										echo '<td>'.$row->nama_dmu.'</td>';
-										echo '<td>'.$row->nilai_efisiensi.'</td>';
-										echo '<td>'.$a.'</td>';
+										echo '<td>'.$z['cabang_klinik'].'</td>';
+										echo '<td>'.$z['nilai_efisiensi'].'</td>';
+										echo '<td>'.$y.'</td>';
 										echo '</tr>';
 										$i++;
 									}
-										echo '</table>';
 										echo '<br />';
-										$result->free();
 									?>
 									</tbody>
 								</table>
@@ -85,4 +78,4 @@
 				</div>
 			</div>
 
-<?php include 'footer.php'; ?>
+<?php include 'closing.php'; ?>

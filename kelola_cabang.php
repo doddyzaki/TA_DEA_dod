@@ -1,12 +1,13 @@
 <?php include 'layout.php'; ?>
 	<!-- div kolom isi -->
-	<div class="col-md-6">
+	<div class="col-md-9">
 		<!-- div panel -->
 		<div class="panel panel-primary">
 			<div class="panel-heading">
 				    <h3 class="panel-title"><span class="glyphicon glyphicon-globe"></span> Kelola Cabang</h3>
 			</div> <!-- end div panel heading -->
 			  	<div class="panel-body">
+			  	<legend>Daftar Cabang</legend>
 			  	<?php
 			  		if (ISSET($_GET['balasan'])) {
 			  			if ($_GET['balasan']==1) {
@@ -60,4 +61,4 @@
 			  	</div> <!-- end div panel body -->
 		</div> <!-- end div panel -->
 	</div> <!-- end div kolom isi -->
-<?php include 'footer.php'; ?>
+<?php include 'closing.php'; ?>

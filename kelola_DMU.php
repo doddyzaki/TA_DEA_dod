@@ -57,8 +57,9 @@
 						</thead>
 						<tbody>
 							<?php
+								// Data Tabel
 								$i = 1;
-								$query = mysqli_query($conn, "SELECT k.cabang_klinik, d.id_klinik FROM tb_klinik AS k, tb_detail_dmu AS d WHERE k.id_klinik=d.id_klinik GROUP BY id_klinik ORDER BY id_detail");
+								$query = mysqli_query($conn, 'SELECT k.cabang_klinik, d.id_klinik FROM tb_klinik AS k, tb_detail_dmu AS d WHERE k.id_klinik=d.id_klinik AND d.id_klinik="'.$id_cabang.'" GROUP BY id_klinik ORDER BY id_detail_dmu');
 								if (mysqli_num_rows($query)) {
 									while ($cabang = mysqli_fetch_assoc($query)) {
 										echo '
@@ -100,8 +101,8 @@
 
 										echo '
 												<td>
-													<a href="ubah_dmu.php?id='.$id_klinik.'" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
-													<a href="process/d_DMU.php?id='.$id_klinik.'" onclick="return hapus()" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-remove"></span></a>
+													<a href="ubah_dmu.php?id='.$id_klinik.'" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
+													<a href="process/d_DMU.php?id='.$id_klinik.'" onclick="return hapus()" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></a>
 								        		</td>
 											</tr>
 										';
@@ -111,13 +112,9 @@
 							?>
 						</tbody>
 					</table>
-					<?php
-						$q = mysqli_query($conn, "SELECT * FROM tb_detail_dmu ORDER BY id_klinik ASC LIMIT 0,1");
-						$d = mysqli_fetch_assoc($q);
-					?>
-					<a href="<?php echo 'process/simplex/simplex.php?dmu='.$d["id_klinik"].'&loop=0'; ?>" class="btn btn-info" type="button">Hitung Efisiensi</a>
+					<a href="process/simplex/simplex.php" class="btn btn-info" type="button">Hitung Efisiensi</a>
 			  	</div>
 		  	</div>
 		</div>
 	</div> <!-- End of Main Content (Second col-sm-9) -->
-<?php include 'footer.php' ?>
+<?php include 'closing.php' ?>

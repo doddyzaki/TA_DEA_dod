@@ -7,8 +7,13 @@
 		if (mysqli_query($conn, $query2)) {
 			$query3 = 'DELETE FROM tb_pengguna WHERE id_klinik='.$id.'';
 			if (mysqli_query($conn, $query3)) {
-				header('Location: ../kelola_cabang.php?balasan=3');
-			}else{
+				$query4 = 'DELETE FROM tb_perhitungan_efisiensi WHERE id_klinik='.$id.'';
+				if (mysqli_query($conn, $query4)) {
+					header('Location: ../kelola_cabang.php?balasan=3');
+				}else{
+				header('Location: ../kelola_cabang.php?balasan=4');
+				}
+			}else {
 				header('Location: ../kelola_cabang.php?balasan=4');
 			}
 		}else{

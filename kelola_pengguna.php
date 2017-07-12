@@ -1,6 +1,6 @@
 <?php include 'layout.php'; ?>
 	<!-- div kolom isi -->
-	<div class="col-md-6">
+	<div class="col-md-9">
 		<!-- div panel -->
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -8,6 +8,18 @@
 			</div> <!-- end div panel heading -->
 			  	<div class="panel-body">
 			  	<?php
+			  		if ($level == 's') {
+			  			// Superadmin
+			  			echo '<legend>Daftar Admin Cabang</legend>';
+			  		} elseif ($level == 'a') {
+			  			// Admin Cabang
+			  			echo '<legend>Daftar Manajer Cabang</legend>';
+			  			$q1= mysqli_query($conn, 'SELECT * FROM tb_pengguna WHERE id_klinik="'.$id_cabang.'"');
+			  			$data= mysqli_fetch_assoc($q1);
+			  			$id_cabang=$data['id_klinik'];
+			  		}
+
+			  		//notifikasi
 			  		if (ISSET($_GET['balasan'])) {
 			  			if ($_GET['balasan']==1) {
 			  			  	echo '<div class="alert alert-dismissible alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button><span class="glyphicon glyphicon-ok"></span> Data berhasil ditambahkan</div>';
@@ -16,7 +28,7 @@
 			  			} elseif ($_GET['balasan']==3) {
 			  			  	echo '<div class="alert alert-dismissible alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button><span class="glyphicon glyphicon-ok"></span> Data berhasil dihapus</div>';
 			  			} elseif ($_GET['balasan']==4) {
-			  			  	echo '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><span class="glyphicon glyphicon-exclamation-sign"></span> Gagal menghapus data cabang klinik</div>';
+			  			  	echo '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><span class="glyphicon glyphicon-exclamation-sign"></span> Gagal menghapus data</div>';
 			  			} elseif ($_GET['balasan']==5) {
 			  			  	echo '<div class="alert alert-dismissible alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button><span class="glyphicon glyphicon-ok"></span> Data berhasil diubah</div>';
 			  			} elseif ($_GET['balasan']==6) {
@@ -37,7 +49,14 @@
 					  <tbody>
 					    <?php
 						    $i=1;
-						    $query = mysqli_query($conn,"SELECT * FROM tb_klinik JOIN tb_pengguna ON tb_klinik.id_klinik = tb_pengguna.id_klinik");
+
+						    if ($level == 's') {
+												// Login sebagai Superadmin
+												$query = mysqli_query($conn, "SELECT * FROM tb_pengguna AS p, tb_klinik AS k WHERE p.id_klinik = k.id_klinik AND p.level = 'a' ORDER BY p.id_pengguna ASC");
+											} elseif ($level== 'a') {
+												// Login sebagai Admin Cabang
+												$query = mysqli_query($conn, 'SELECT * FROM tb_pengguna AS p, tb_klinik AS k WHERE p.id_klinik = k.id_klinik AND p.level = "m" AND p.id_klinik="'.$id_cabang.'" ORDER BY p.id_pengguna ASC');
+											}
 
 							    if(mysqli_num_rows($query)>0){
 							    	while ($pengguna = mysqli_fetch_assoc($query)) {
@@ -48,7 +67,7 @@
 										    		<td>'.$pengguna['username'].'</td>
 										    		<td>'.$pengguna['cabang_klinik'].'</td>
 										    		<td>
-														<a href="ubah_pengguna.php?id='.$pengguna['id_pengguna'].'" class="btn btn-info btn-sm">Ubah</a>
+														<a href="ubah_pengguna.php?type=ubah&id='.$pengguna['id_pengguna'].'" class="btn btn-info btn-sm">Ubah</a>
 														<a href="process/d_pengguna.php?id='.$pengguna['id_pengguna'].'" class="btn btn-danger btn-sm">Hapus</a>
 									        		</td>
 										    	</tr>
@@ -63,4 +82,4 @@
 			  	</div> <!-- end div panel body -->
 		</div> <!-- end div panel -->
 	</div> <!-- end div kolom isi -->
-<?php include 'footer.php'; ?>
+<?php include 'closing.php'; ?>

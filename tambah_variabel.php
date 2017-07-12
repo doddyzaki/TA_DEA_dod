@@ -1,6 +1,6 @@
 <?php include 'layout.php'; ?>
 	<!-- div kolom isi -->
-	<div class="col-md-6">
+	<div class="col-md-9">
 		<!-- div panel -->
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -16,28 +16,28 @@
 				  			  	}
 						    ?>
 							<div class="form-group">
-						  		<label class="col-md-2 control-label" for="">Nama</label>
-						  		<div class="col-md-6">
-						    		<input class="form-control" id="" name="nama_variabel" type="text" placeholder="Nama Variabel">
+						  		<label class="col-md-2 col-md-offset-2 control-label" for="">Nama Variabel</label>
+						  		<div class="col-md-4">
+						    		<input class="form-control" id="" name="nama_variabel" type="text" placeholder="Nama Variabel" required>
 						  		</div>
 							</div>
 							<div class="form-group">
-						  		<label class="col-md-2 control-label" for="">Satuan</label>
-						  		<div class="col-md-6">
-						    		<input class="form-control" id="" name="satuan" type="text" placeholder="Satuan dari nilai Variabel. Misal: Orang">
+						  		<label class="col-md-2 col-md-offset-2 control-label" for="">Satuan</label>
+						  		<div class="col-md-4">
+						    		<input class="form-control" id="" name="satuan" type="text" placeholder="Satuan dari nilai Variabel. Misal: Orang" required>
 						  		</div>
 							</div>
 							<div class="form-group">
-						      <label class="col-md-2 control-label">Tipe</label>
-						      <div class="col-md-10">
+						      <label class="col-md-2 col-md-offset-2 control-label">Tipe</label>
+						      <div class="col-md-2">
 						        <div class="radio">
-						          <label>
+						          <label class="col-md-2 ">
 						            <input name="radio_jns" id="" value="Input" checked="" type="radio">
 						            Input
 						          </label>
 						        </div>
 						        <div class="radio">
-						          <label>
+						          <label class="col-md-2">
 						            <input name="radio_jns" id="" value="Output" type="radio">
 						            Output
 						          </label>
@@ -46,8 +46,7 @@
 						    </div>
 						    <br>
 							<div class="form-group">
-							  	<div class="col-md-4 col-md-offset-2">
-									<button class="btn btn-danger" type="reset">Cancel</button>
+							  	<div class="col-md-4 col-md-offset-4">
 								    <button class="btn btn-success" name="simpan" type="submit">Submit</button>
 							  	</div>
 							</div>
@@ -56,4 +55,4 @@
 			  	</div> <!-- end div panel body -->
 		</div> <!-- end div panel -->
 	</div> <!-- end div kolom isi -->
-<?php include 'footer.php'; ?>
+<?php include 'closing.php'; ?>
