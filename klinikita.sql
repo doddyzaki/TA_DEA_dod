@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 12 Jul 2017 pada 01.47
--- Versi Server: 5.6.21
+-- Generation Time: Jul 17, 2017 at 12:47 AM
+-- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `klinikita2`
+-- Database: `klinikita`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_detail_dmu`
+-- Table structure for table `tb_detail_dmu`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_detail_dmu` (
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `tb_detail_dmu` (
 ) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data untuk tabel `tb_detail_dmu`
+-- Dumping data for table `tb_detail_dmu`
 --
 
 INSERT INTO `tb_detail_dmu` (`id_detail_dmu`, `id_klinik`, `id_variabel`, `nilai_variabel`) VALUES
@@ -63,17 +63,17 @@ INSERT INTO `tb_detail_dmu` (`id_detail_dmu`, `id_klinik`, `id_variabel`, `nilai
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_klinik`
+-- Table structure for table `tb_klinik`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_klinik` (
-`id_klinik` int(3) NOT NULL,
+`id_klinik` int(11) NOT NULL,
   `cabang_klinik` varchar(30) COLLATE utf8_bin NOT NULL,
   `alamat` varchar(50) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data untuk tabel `tb_klinik`
+-- Dumping data for table `tb_klinik`
 --
 
 INSERT INTO `tb_klinik` (`id_klinik`, `cabang_klinik`, `alamat`) VALUES
@@ -84,20 +84,20 @@ INSERT INTO `tb_klinik` (`id_klinik`, `cabang_klinik`, `alamat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pengguna`
+-- Table structure for table `tb_pengguna`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_pengguna` (
-`id_pengguna` int(3) NOT NULL,
-  `nama` varchar(50) COLLATE utf8_bin NOT NULL,
-  `username` varchar(50) COLLATE utf8_bin NOT NULL,
+`id_pengguna` int(11) NOT NULL,
+  `nama` varchar(30) COLLATE utf8_bin NOT NULL,
+  `username` varchar(20) COLLATE utf8_bin NOT NULL,
   `password` varchar(50) COLLATE utf8_bin NOT NULL,
-  `id_klinik` int(3) NOT NULL,
+  `id_klinik` int(11) NOT NULL,
   `level` char(1) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=COMPACT;
 
 --
--- Dumping data untuk tabel `tb_pengguna`
+-- Dumping data for table `tb_pengguna`
 --
 
 INSERT INTO `tb_pengguna` (`id_pengguna`, `nama`, `username`, `password`, `id_klinik`, `level`) VALUES
@@ -115,7 +115,7 @@ INSERT INTO `tb_pengguna` (`id_pengguna`, `nama`, `username`, `password`, `id_kl
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_perhitungan_efisiensi`
+-- Table structure for table `tb_perhitungan_efisiensi`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_perhitungan_efisiensi` (
@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `tb_perhitungan_efisiensi` (
 ) ENGINE=InnoDB AUTO_INCREMENT=244 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data untuk tabel `tb_perhitungan_efisiensi`
+-- Dumping data for table `tb_perhitungan_efisiensi`
 --
 
 INSERT INTO `tb_perhitungan_efisiensi` (`id_perhitungan_efisiensi`, `id_klinik`, `id_variabel`, `nilai_efisiensi`, `nilai_awal`, `rekomendasi`) VALUES
@@ -151,18 +151,18 @@ INSERT INTO `tb_perhitungan_efisiensi` (`id_perhitungan_efisiensi`, `id_klinik`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_variabel`
+-- Table structure for table `tb_variabel`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_variabel` (
-`id_variabel` int(3) NOT NULL,
-  `nama_variabel` varchar(50) COLLATE utf8_bin NOT NULL,
+`id_variabel` int(11) NOT NULL,
+  `nama_variabel` varchar(20) COLLATE utf8_bin NOT NULL,
   `jenis_variabel` char(6) COLLATE utf8_bin NOT NULL,
-  `satuan` varchar(50) COLLATE utf8_bin NOT NULL
+  `satuan` varchar(20) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data untuk tabel `tb_variabel`
+-- Dumping data for table `tb_variabel`
 --
 
 INSERT INTO `tb_variabel` (`id_variabel`, `nama_variabel`, `jenis_variabel`, `satuan`) VALUES
@@ -171,7 +171,7 @@ INSERT INTO `tb_variabel` (`id_variabel`, `nama_variabel`, `jenis_variabel`, `sa
 (22, 'Perawat', 'Input', 'Orang'),
 (23, 'Staff Non Medis', 'Input', 'Orang'),
 (24, 'Jam Kerja', 'Input', 'Jam'),
-(25, 'Omset', 'Output', 'Juta'),
+(25, 'Omzet', 'Output', 'Juta'),
 (26, 'Pasien', 'Output', 'Orang');
 
 --
@@ -221,12 +221,12 @@ MODIFY `id_detail_dmu` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
 -- AUTO_INCREMENT for table `tb_klinik`
 --
 ALTER TABLE `tb_klinik`
-MODIFY `id_klinik` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id_klinik` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tb_pengguna`
 --
 ALTER TABLE `tb_pengguna`
-MODIFY `id_pengguna` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
+MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `tb_perhitungan_efisiensi`
 --
@@ -236,7 +236,7 @@ MODIFY `id_perhitungan_efisiensi` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT
 -- AUTO_INCREMENT for table `tb_variabel`
 --
 ALTER TABLE `tb_variabel`
-MODIFY `id_variabel` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+MODIFY `id_variabel` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

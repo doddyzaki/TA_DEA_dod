@@ -90,31 +90,32 @@
 						  			  }
 								    ?>
 								    <div class="form-group">
-								      	<label class="col-sm-3 control-label">Nama</label>
-								      	<div class="col-sm-6">
+								      	<label class="col-sm-2 col-md-offset-2 control-label">Nama</label>
+								      	<div class="col-sm-4">
 								        	<input class="form-control" name="nama_pengguna" placeholder="Panjang maksimal 50 karakter" type="text" maxlength="50" value="<?php echo $nama; ?>" required>
 								      	</div>
 								    </div>
 								    <div class="form-group">
-								      	<label class="col-sm-3 control-label">Username</label>
-								      	<div class="col-sm-6">
+								      	<label class="col-sm-2 col-md-offset-2 control-label">Username</label>
+								      	<div class="col-sm-4">
 								        	<input class="form-control" name="username" placeholder="Panjang username 5-20 karakter" type="text" minlength="5" maxlength="20" value="<?php echo $username; ?>" disabled required>
 								      	</div>
 								    </div>
 								    <div class="form-group">
-								      	<label class="col-sm-3 control-label">Password</label>
-								      	<div class="col-sm-6">
+								      	<label class="col-sm-2 col-md-offset-2 control-label">Password</label>
+								      	<div class="col-sm-4">
 								        	<input class="form-control" name="password" placeholder="Panjang password 5-12 karakter" type="password" minlength="5" maxlength="12" required>
 								      	</div>
 								    </div>
 								    <div class="form-group">
-								      	<label class="col-sm-3 control-label">Cabang Klinik</label>
-								      	<div class="col-sm-6">
-								        	<select name="cabang_klinik" class="form-control" disabled required>
-								        		
+								      	<label class="col-sm-2 col-md-offset-2 control-label">Cabang</label>
+								      	<div class="col-sm-4">
+								        	<select name="cabang_klinik" class="form-control" <?php if ($lvl == 's') {echo 'disabled';} ?> disabled required>
+								        		<option value=""> -- Pilih Cabang -- </option>
 								        		<?php
-								        			$query = mysqli_query($conn, 'SELECT * FROM tb_klinik as k, tb_pengguna as p WHERE k.id_klinik=p.id_klinik AND k.id_klinik="'.$id_cabang.'"');
+								        			$query = mysqli_query($conn, "SELECT * FROM tb_klinik");
 								        			if (mysqli_num_rows($query) > 0) {
+													    // output data of each row
 													    while($cabang = mysqli_fetch_assoc($query)) {
 													    	$id_cabang = $cabang['id_klinik'];
 													    	if ($id_klinik == $id_cabang) { // Jika sesuai id yang sedang diubah
@@ -125,11 +126,11 @@
 													    }
 													}
 								        		?>
-								        	</select>
+								        	</select> 
 								      	</div>
 								    </div>
 								    <div class="form-group">
-								      	<div class="col-sm-6 col-sm-offset-3">
+								      	<div class="col-sm-4 col-sm-offset-4">
 								        	<button type="submit" class="btn btn-success">Simpan</button>
 								      	</div>
 								    </div>

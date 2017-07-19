@@ -13,7 +13,7 @@
 								    <legend>Ubah Data DMU</legend>
 								    <div class="form-group">
 								      	<label class="col-sm-4 control-label">Nama</label>
-								      	<div class="col-sm-6">
+								      	<div class="col-sm-4">
 								        	<select name="id_klinik" class="form-control" required disabled>
 								        		<option value=""> -- Pilih Cabang -- </option>
 								        		<?php
@@ -42,17 +42,17 @@
 											$satuan = $var['satuan'];
 											$value = $var["nilai_variabel"];
 											if (($var['jenis_variabel'] == 'Input') AND ($input == 0)) {
-												echo '<div class="form-group"><span class="label label-info center-block"><h5>Variabel Input</h5></span>
+												echo '<div class="form-group"><span class="label label-primary center-block"><h5>Variabel Input</h5></span>
 													</div>';
 													$input = 1;
 											} elseif (($var['jenis_variabel'] == 'Output') AND ($output == 0)) {
-												echo '<div class="form-group"><span class="label label-danger center-block"><h5>Variabel Output</h5></span></div>';
+												echo '<div class="form-group"><span class="label label-primary center-block"><h5>Variabel Output</h5></span></div>';
 													$output = 1;
 											}
 											echo '
 												<div class="form-group">
 												    <label class="col-sm-4 control-label">'.$var["nama_variabel"].'</label>
-												    <div class="col-sm-6">
+												    <div class="col-sm-4">
 												        <input class="form-control" name="'.$name.'" type="number" min="0" placeholder="'.$satuan.'" value="'.$value.'" required>
 												    </div>
 												</div>

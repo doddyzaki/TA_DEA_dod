@@ -14,7 +14,7 @@
 		  	<?php 
 				if ($level == 's') {
 					echo '	<div align="center">
-								<h1><strong>SISTEM PENGUKURAN EFISIENSI KLINIKITA</strong></h1>
+								<h2><strong>SISTEM PENGUKURAN EFISIENSI KLINIKITA</strong></h2>
 							</div><hr />';
 					echo '
 							<br>
@@ -24,7 +24,8 @@
 					';
 				} else {
 					echo '	<div align="center">
-								<h1><strong>HASIL PENGUKURAN EFISIENSI DAN REKOMENDASI KLINIKITA</strong></h1>
+								<h3><strong>HASIL PENGUKURAN EFISIENSI DAN REKOMENDASI KLINIKITA</strong></h3>
+								<br>
 							</div>';
 				}
 			?>
@@ -49,7 +50,8 @@
 						for ($j=0; $j < $n_dmu ; $j++) { 
 						$efisiensi=round($ef[$j],4);
 						
-						echo '
+						if ($efisiensi == 1) {
+							echo '
 						<div class="panel-body">
 							<div class="row">
 							  	<div class="col-md-3">
@@ -57,7 +59,7 @@
 							  	</div>
 							</div>
 							<div class="col-md-3">
-								<div class="panel panel-default">
+								<div class="panel panel-success">
 								  <div class="panel-heading" align="center"><h4> Nilai Efisiensi </h4></div>
 								  <div class="panel-body" align="center">
 								    <h2> '.$efisiensi.' </h2>
@@ -66,6 +68,25 @@
 							</div>
 							
 						';
+						} else {
+							echo '
+						<div class="panel-body">
+							<div class="row">
+							  	<div class="col-md-3">
+							    	<legend>'.$cab[$j].'</legend>
+							  	</div>
+							</div>
+							<div class="col-md-3">
+								<div class="panel panel-danger">
+								  <div class="panel-heading" align="center"><h4> Nilai Efisiensi </h4></div>
+								  <div class="panel-body" align="center">
+								    <h2> '.$efisiensi.' </h2>
+								  </div>
+								</div>
+							</div>
+							
+						';
+						}
 					
 						echo '
 							<div class="col-md-9">
@@ -141,7 +162,8 @@
 						for ($j=0; $j < $n_dmu ; $j++) { 
 						$efisiensi=round($ef[$j],4);
 						
-						echo '
+						if ($efisiensi == 1) {
+							echo '
 						<div class="panel-body">
 							<div class="row">
 							  	<div class="col-md-3">
@@ -149,7 +171,7 @@
 							  	</div>
 							</div>
 							<div class="col-md-3">
-								<div class="panel panel-default">
+								<div class="panel panel-success">
 								  <div class="panel-heading" align="center"><h4> Nilai Efisiensi </h4></div>
 								  <div class="panel-body" align="center">
 								    <h2> '.$efisiensi.' </h2>
@@ -158,6 +180,25 @@
 							</div>
 							
 						';
+						} else {
+							echo '
+						<div class="panel-body">
+							<div class="row">
+							  	<div class="col-md-3">
+							    	<legend>'.$cab[$j].'</legend>
+							  	</div>
+							</div>
+							<div class="col-md-3">
+								<div class="panel panel-danger">
+								  <div class="panel-heading" align="center"><h4> Nilai Efisiensi </h4></div>
+								  <div class="panel-body" align="center">
+								    <h2> '.$efisiensi.' </h2>
+								  </div>
+								</div>
+							</div>
+							
+						';
+						}
 					
 						echo '
 							<div class="col-md-9">

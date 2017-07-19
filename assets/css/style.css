@@ -6,39 +6,39 @@
 */
 
 body {
-	font-family: 'Open Sans', sans-serif;
-	line-height: 20px;
-	color: #999999;
-	font-size: 300;
-	font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 20px;
+    color: #999999;
+    font-size: 300;
+    font-size: 16px;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 h1, h2, h3, h4, h5, h6
 {
-	font-family: 'Raleway', sans-serif;
-	font-weight: 600;
-	color: #222222;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: #222222;
 }
 a, a:hover, a:focus, a:active{
     outline: none;
 }
 
 .section-padding{
-	padding: 60px 0px;
+    padding: 60px 0px;
 
 }
 h2 {
@@ -82,8 +82,8 @@ banner
 
 .navbar-brand
 {
-	font-family: 'Chewy', cursive;
-	font-size: 32px;
+    font-family: 'Chewy', cursive;
+    font-size: 32px;
 }
 
 .navbar-brand img {
@@ -102,12 +102,12 @@ banner
 
 .white, .white:hover, .white:focus
 {
-	color: #fff;
-	width: 100% !important;
+    color: #fff;
+    width: 100% !important;
 }
 .block
 {
-	display: block;
+    display: block;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
     color: #fff;
@@ -116,14 +116,14 @@ banner
 }
 .navbar-default .navbar-nav > li > a
 {
-	color: #fff;
-	text-transform: uppercase;
-	font-size: 14px;
-	font-weight: 300;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 300;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
 {
-	color: #fff;
+    color: #fff;
     text-transform: uppercase;
     background-color: rgba(12, 184, 182, 0.21);
 }
@@ -135,37 +135,37 @@ banner
     background-color: rgba(12, 184, 182) !important;
 }
 #banner{
-	background: url('../img/bg-banner.jpg') no-repeat fixed;
-	background-size: cover;
-	min-height: 650px;
-	position: relative;
+    background: url('../img/bg-banner.jpg') no-repeat fixed;
+    background-size: cover;
+    min-height: 650px;
+    position: relative;
 }
 .bg-color{
-	background-color: RGBA(13, 70, 83, 0.78);
-	min-height: 650px;
+    background-color: RGBA(13, 70, 83, 0.78);
+    min-height: 650px;
 }
 .banner-info{
-	padding-top: 190px;
+    padding-top: 190px;
 }
 .banner-logo img{
-	display: inline-block;
+    display: inline-block;
 }
 .banner-text{
-	color: #fff;
+    color: #fff;
 }
 .banner-text h1{
-	font-family: 'Candal', sans-serif;
-	font-size: 35px;
-	text-transform: uppercase;
-	padding-bottom:15px; 
+    font-family: 'Candal', sans-serif;
+    font-size: 35px;
+    text-transform: uppercase;
+    padding-bottom:15px; 
 }
 .btn-appoint, .btn-appoint:hover, .btn-appoint:focus{
-	margin-top: 30px;
-	padding: 10px 20px;
-	font-size: 12px;
-	background-color: rgba(12, 184, 182, 0.91);
-	border-radius: 3px;
-	color: #fff;
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 12px;
+    background-color: rgba(12, 184, 182, 0.91);
+    border-radius: 3px;
+    color: #fff;
 }
 .overlay-detail a i {
     text-align: center;
@@ -183,37 +183,37 @@ banner
 services
 ***************************************/
 .icon i{
-	color: #0cb8b6;
-	font-size: 45px;
-	margin-bottom: 25px;
+    color: #0cb8b6;
+    font-size: 45px;
+    margin-bottom: 25px;
 }
 .service-info{
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 .icon-info h4{
-	padding-bottom: 15px;
+    padding-bottom: 15px;
 }
 .icon-info p{
-	font-size: 15px !important;
+    font-size: 15px !important;
 }
 /***************************************
 cta-1
 ***************************************/
 .schedule-tab {
-	background-color: #0CB8B6;
-	float: left;
+    background-color: #0CB8B6;
+    float: left;
 }
 .medi-info{
-	border-right: 1px solid #fff;
+    border-right: 1px solid #fff;
 }
 .medi-info, .time-info{
-	padding: 20px;
-	color: #fff;
+    padding: 20px;
+    color: #fff;
 }
 .medi-info h3, .time-info h3{
-	padding-bottom: 16px;
-	color: #fff;
-	font-weight: 600;
+    padding-bottom: 16px;
+    color: #fff;
+    font-weight: 600;
 }
 .medi-info-btn, .medi-info-btn:hover, .medi-info-btn:focus {
     margin: 15px 0px 5px;
@@ -240,8 +240,8 @@ about
     background-color: rgba(238, 238, 238, 0.15);
 }
 .lg-line{
-	line-height: 1.4;
-	font-size: 28px;
+    line-height: 1.4;
+    font-size: 28px;
 }
 .more-features-box-text-icon {
     float: left;
@@ -263,17 +263,17 @@ about
     line-height: 26px;
 }
 .more-features-box-text-description{
-	margin-left: 80px;
-	margin-bottom: 35px;
+    margin-left: 80px;
+    margin-bottom: 35px;
 }
 .sec-para{
-	padding-bottom: 10px;
+    padding-bottom: 10px;
 }
 /***************************************
 doctor team
 ***************************************/
 .thumbnail {
-	border-radius: 0px;
+    border-radius: 0px;
 }
 .caption h3{
     padding-bottom: 5px;
@@ -307,26 +307,26 @@ login
 cta -2
 ***************************************/
 #cta-2{
-	background-color: rgb(41, 48, 46);
+    background-color: rgb(41, 48, 46);
 }
 .white{
-	color: #fff;
+    color: #fff;
 }
 .icon-play, .icon-play:hover, .icon-play:focus{
-	background-color: #0CB8B6;
-	padding: 5px 10px;
-	color: #fff;
-	text-decoration: none;
-	padding: 5px 17px;
-	margin-top: 26px;
-	display: block;
+    background-color: #0CB8B6;
+    padding: 5px 10px;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 17px;
+    margin-top: 26px;
+    display: block;
 }
 .text-primary {
     color: #0cb8b6;
 }
 .icon-mar 
 {
-	margin-right: 7px;
+    margin-right: 7px;
 }
 /***************************************
 contact us
@@ -344,7 +344,7 @@ contact us
     border-radius: 0px;
 }
 .form-control{
-	height: 40px;
+    height: 40px;
 }
 
 .validation {
@@ -376,7 +376,7 @@ contact us
 }
 
 #sendmessage.show, #errormessage.show, .show {
-	display:block;
+    display:block;
 }
 
 
@@ -384,7 +384,7 @@ contact us
 footer
 ***************************************/
 #footer{
-	background-color: #325C6A;
+    background-color: #325C6A;
 }
 .ftr-tle {
     height: 50px;

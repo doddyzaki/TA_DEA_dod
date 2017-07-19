@@ -36,8 +36,8 @@
 			  			}
 			  		}	
 		  		?>
-					<table class="table table-striped table-hover ">
-					  <thead>
+					<table class="table table-striped table-hover table-responsive">
+					  <thead align="center">
 					    <tr>
 					      <th>No</th>
 					      <th>Nama</th>

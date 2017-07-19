@@ -19,10 +19,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Program DEA</title>
+    <title>SPEK</title>
 
     <!-- Bootstrap -->
+    
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="assets/css/cssku.css">
   </head>
   
@@ -30,7 +32,7 @@
 
     <div class="container-fluid">
       <div class="row">
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <!-- navbar header -->
             <div class="navbar-header">
@@ -86,17 +88,17 @@
                         </ul>
                       </li>
                       <li>
-                        <a data-toggle="collapse" data-parent="#stacked-menu" href="#p1"><span class="glyphicon glyphicon-user"></span> Kelola '.$lvl.' <span class="caret"></span></a>
-                        <ul class="nav nav-pills nav-stacked collapse" id="p1">
-                          <li><a href="tambah_pengguna.php">Tambah Pengguna</a></li>
-                          <li><a href="kelola_pengguna.php">Daftar Pengguna</a></li>
-                        </ul>
-                      </li>
-                      <li>
                         <a data-toggle="collapse" data-parent="#stacked-menu" href="#p3"><span class="glyphicon glyphicon-file"></span> Kelola Variabel <span class="caret"></span></a>
                         <ul class="nav nav-pills nav-stacked collapse" id="p3">
                           <li><a href="tambah_variabel.php">Tambah Variabel</a></li>
                           <li><a href="kelola_variabel.php">Daftar Variabel</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a data-toggle="collapse" data-parent="#stacked-menu" href="#p1"><span class="glyphicon glyphicon-user"></span> Kelola '.$lvl.' <span class="caret"></span></a>
+                        <ul class="nav nav-pills nav-stacked collapse" id="p1">
+                          <li><a href="tambah_pengguna.php">Tambah Pengguna</a></li>
+                          <li><a href="kelola_pengguna.php">Daftar Pengguna</a></li>
                         </ul>
                       </li>
                 ';

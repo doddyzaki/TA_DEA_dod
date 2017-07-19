@@ -18,13 +18,13 @@
 							<div class="form-group">
 						  		<label class="col-md-2 col-md-offset-2 control-label" for="">Nama Variabel</label>
 						  		<div class="col-md-4">
-						    		<input class="form-control" id="" name="nama_variabel" type="text" placeholder="Nama Variabel" required>
+						    		<input class="form-control" id="" name="nama_variabel" type="text" placeholder="Maksimal 20 Karakter." maxlength="20" required>
 						  		</div>
 							</div>
 							<div class="form-group">
 						  		<label class="col-md-2 col-md-offset-2 control-label" for="">Satuan</label>
 						  		<div class="col-md-4">
-						    		<input class="form-control" id="" name="satuan" type="text" placeholder="Satuan dari nilai Variabel. Misal: Orang" required>
+						    		<input class="form-control" id="" name="satuan" type="text" placeholder="Satuan dari nilai Variabel. Misal: Orang" maxlength="20" required>
 						  		</div>
 							</div>
 							<div class="form-group">

@@ -40,11 +40,12 @@
 												$satuan = $var['satuan'];
 												// Pemisah var
 												if (($var['jenis_variabel'] == 'Input') AND ($input == 0)) {
-													echo '<div class="form-group"><span class="label label-info center-block"><h5>Variabel Input</h5></span>
+													echo '<div class="form-group"><span class="label label-primary center-block"><h5>Variabel Input</h5></span>
 													</div>';
 													$input = 1;
 												} elseif (($var['jenis_variabel'] == 'Output') AND ($output == 0)) {
-													echo '<div class="form-group"><span class="label label-danger center-block"><h5>Variabel Output</h5></span></div>';
+													echo '<div class="form-group"><span class="label label-primary center-block"><h5>Variabel Output</h5></span>
+													</div>';
 													$output = 1;
 												}
 												echo '

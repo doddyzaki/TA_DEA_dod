@@ -12,7 +12,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Medilab Free Bootstrap HTML5 Template</title>
+    <title>SPEK</title>
     <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
     <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
     
@@ -88,7 +88,7 @@
             </div>
             <div class="icon-info">
               <h4>Laporan Perusahaan</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p>Rekap Laporan Klinikita dalam satu tahun yang dijadikan data untuk perhitungan efisiensi</p>
             </div>
           </div>
           <div class="service-info">
@@ -97,7 +97,7 @@
             </div>
             <div class="icon-info">
               <h4>Proses dan Analisis</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p>Proses menganalisis dan menerjemahkan laporan perusahaan menjadi data untuk perhitungan efisiensi</p>
             </div>
           </div>
         </div>
@@ -108,7 +108,7 @@
             </div>
             <div class="icon-info">
               <h4>Efisiensi</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p>Proses Perhitungan efisiensi menggunakan DEA dengan Model CCR <i>Input Oriented</i></p>
             </div>
           </div>
           <div class="service-info">
@@ -117,7 +117,7 @@
             </div>
             <div class="icon-info">
               <h4>Rekomendasi Pengambilan Keputusan</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p>Hasil perhitungan yang telah dilakukan menghasilkan nilai efisiensi dan rekomendasi yang dapat digunakan untuk mendukung pengambilan keputusan</p>
             </div>
           </div>
         </div>
@@ -143,7 +143,7 @@
               echo '<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><span class="glyphicon glyphicon-exclamation-sign"></span>  '.$_SESSION['error'].'</div>';
             }
           ?>
-            <h4 align="center">Sistem Pengukuran Efisiensi Klinik</h4>
+            <div class="login-title" align="center">Sistem Pengukuran Efisiensi Klinik</div>
             <div class="account-wall">
                 <img class="profile-img" src="assets/img/logo_klinikita.jpg"
                     alt="Logo Klinikita">

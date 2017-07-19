@@ -11,6 +11,8 @@ th,tr,td{
   text-align: center;
 }
 
+/*Form untuk Login*/
+
 .form-signin
 {
     max-width: 330px;
@@ -21,10 +23,7 @@ th,tr,td{
 {
     margin-bottom: 10px;
 }
-.form-signin .checkbox
-{
-    font-weight: normal;
-}
+
 .form-signin .form-control
 {
     position: relative;
@@ -63,7 +62,7 @@ th,tr,td{
 .login-title
 {
     color: #555;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     display: block;
 }

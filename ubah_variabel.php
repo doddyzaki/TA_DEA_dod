@@ -12,7 +12,7 @@
 	}
 ?>
 	<!-- div kolom isi -->
-	<div class="col-md-6">
+	<div class="col-md-9">
 		<!-- div panel -->
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -23,20 +23,20 @@
 						<fieldset>
 							<legend>Ubah Data Variabel</legend>
 							<div class="form-group">
-						  		<label class="col-md-2 control-label" for="">Nama</label>
-						  		<div class="col-md-6">
+						  		<label class="col-md-2 col-md-offset-2 control-label" for="">Nama Variabel</label>
+						  		<div class="col-md-4">
 						    		<input class="form-control" id="" name="nama_variabel" type="text" placeholder="Nama Variabel" value="<?php echo $namavar_target; ?>" required>
 						  		</div>
 							</div>
 							<div class="form-group">
-						  		<label class="col-md-2 control-label" for="">Satuan</label>
-						  		<div class="col-md-6">
+						  		<label class="col-md-2 col-md-offset-2 control-label" for="">Satuan</label>
+						  		<div class="col-md-4">
 						    		<input class="form-control" id="" name="satuan" type="text" placeholder="Satuan dari nilai Variabel. Misal: Orang" value="<?php echo $satuan_target; ?>" required>
 						  		</div>
 							</div>
 							<div class="form-group">
-						      	<label class="col-md-2 control-label">Tipe</label>
-						      	<div class="col-md-10">
+						      	<label class="col-md-2 col-md-offset-2 control-label">Tipe</label>
+						      	<div class="col-md-1">
 							    <?php 
 							      	if ($jenisvar_target == 'Input') {
 							      		echo ' <div class="radio">
@@ -75,7 +75,7 @@
 						    </div>
 						    <br>
 							<div class="form-group">
-							  	<div class="col-md-4 col-md-offset-2">
+							  	<div class="col-md-4 col-md-offset-4">
 								    <button class="btn btn-success" name="simpan" type="submit">Simpan</button>
 							  	</div>
 							</div>

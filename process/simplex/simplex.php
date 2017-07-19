@@ -20,7 +20,7 @@
 
 	//Mendapatkan Semua id variabel urut berdasarkan jenis variabel dan id variabel
 	$id_variabel = array();
-	$q = mysqli_query($conn, 'SELECT d.id_variabel FROM tb_detail_dmu AS d, tb_variabel AS v WHERE d.id_variabel=v.id_variabel GROUP BY d.id_variabel ORDER BY v.jenis_variabel ASC');
+	$q = mysqli_query($conn, 'SELECT d.id_variabel FROM tb_detail_dmu AS d, tb_variabel AS v WHERE d.id_variabel=v.id_variabel GROUP BY d.id_variabel ORDER BY v.jenis_variabel, v.id_variabel ASC');
 	if (mysqli_num_rows($q) > 0) {
 		$i = 0;
 		while ($data = mysqli_fetch_assoc($q)) {
@@ -41,12 +41,12 @@
 	$d=mysqli_fetch_array($q);
 	$n_var_output=$d['total'];
 
-	echo "var input:<br>";
+	/*echo "var input:<br>";
 	echo $n_var_input.'<br>';
 	echo "var output:<br>";
 	echo $n_var_output.'<br>';
 	echo "n dmu:<br>";
-	echo $n_dmu;
+	echo $n_dmu;*/
 
 	/**Pembentukan Persamaan DEA Model CCR**/
 	
@@ -62,8 +62,9 @@
 			while ($d1=mysqli_fetch_assoc($q1)) {
 				$id_var=$d1['id_variabel'];
 				if ($n_var <= $n_var_input) {
+					
 					// Fungsi Z (var input)
-					$q2=mysqli_query($conn, 'SELECT d.nilai_variabel FROM tb_detail_dmu AS d, tb_variabel AS v WHERE d.id_variabel=v.id_variabel AND d.id_variabel="'.$id_var.'" AND v.jenis_variabel="Input"');
+					$q2=mysqli_query($conn, 'SELECT d.nilai_variabel FROM tb_detail_dmu AS d, tb_variabel AS v WHERE d.id_variabel=v.id_variabel AND d.id_variabel="'.$id_var.'" AND v.jenis_variabel="Input" ORDER BY d.id_variabel');
 					if (mysqli_num_rows($q2) > 0) {
 						while ($d2=mysqli_fetch_assoc($q2)) {
 							if ($j > $n_dmu) {
@@ -75,8 +76,9 @@
 						}
 					}
 				} else {
+					
 					// Fungsi Kendala (var output)
-					$q3=mysqli_query($conn, 'SELECT d.nilai_variabel FROM tb_detail_dmu AS d, tb_variabel AS v WHERE d.id_variabel=v.id_variabel AND d.id_variabel="'.$id_var.'" AND v.jenis_variabel="Output"');
+					$q3=mysqli_query($conn, 'SELECT d.nilai_variabel FROM tb_detail_dmu AS d, tb_variabel AS v WHERE d.id_variabel=v.id_variabel AND d.id_variabel="'.$id_var.'" AND v.jenis_variabel="Output" ORDER BY d.id_variabel');
 					if (mysqli_num_rows($q3) > 0) {
 						while ($d3=mysqli_fetch_assoc($q3)) {
 							if ($l > $n_dmu) {
@@ -123,7 +125,7 @@
 		echo "<br>";
 		print_r($fungsi_kendala[1]);
 		echo "<br>";*/
-		/* Akhir pembentukan persamaan CCR Model */
+	/* Akhir pembentukan persamaan CCR Model */
 		
 		/*Menampilkan Hasil Efisiensi dan Rekomendasi*/
 
@@ -219,24 +221,23 @@
 		}
 
 		//Membagi Koefisien Fungsi Z dengan koefisien var Z
+		
 		//Sekaligus Mengalikan Fungsi Z dengan -1
-		for ($i=0; $i < $n_var_input; $i++) { 
-			for ($j=1; $j <= $n_dmu; $j++) { 
-				$f_ccr_z[0]['x'.$j] = -1 * ($f_ccr_z[0]['x'.$j] / abs($f_ccr_z[0]['z']));
-			}
-			$f_ccr_z[0]['z'] = $f_ccr_z[0]['z'] / abs($f_ccr_z[0]['z']);
+		for ($j=1; $j <= $n_dmu; $j++) { 
+			$f_ccr_z[0]['x'.$j] = $f_ccr_z[0]['x'.$j] / abs($f_ccr_z[0]['z']);
+			$f_ccr_z[0]['x'.$j] = $f_ccr_z[0]['x'.$j] * -1;
 		}
-
-		//Pindah ruas Z
-		//Menambahkan var slack pada fungsi z
+		$f_ccr_z[0]['z'] = $f_ccr_z[0]['z'] / abs($f_ccr_z[0]['z']);
+		
+		// Pindah Ruas Z
+		// Menambahkan Var Slack pada Fungsi Z
 		$f_ccr_z[0]['ruas_kanan'] = 0;
 		$f_ccr_z[0]['b'] = 'z';
 		unset($f_ccr_z[0]['z']);
-		$n_kendala_ccr =  count($fungsi_kendala);
+		$n_kendala_ccr = count($fungsi_kendala);
 		for ($i=1; $i <= $n_kendala_ccr; $i++) { 
 			$f_ccr_z[0]['s'.$i] = 0;
 		}
-
 		//Mengubah Notasi Fungsi Kendala dari >= menjadi <= dengan mengalikan -1
 		//Menambah Var Slack
 		for ($i=0; $i < $n_kendala_ccr; $i++) { 
@@ -259,6 +260,7 @@
 		return $tabel_dual_simplex;
 	}
 
+//Fungsi Dual Simplex
 	function dual_simplex($tabel_ccr, $n_dmu){
 		$f_ccr_z = $tabel_ccr[0];
 		$n_kendala_ccr = count($tabel_ccr[1]);
@@ -289,6 +291,7 @@
 		while ($terminasi_ccr !== 0) {
 		$iter++;
 		//Perhitungan Iterasi
+			
 			//Mencari Pivot Baris
 			$pivot_baris_ccr = 100;
 			for ($i=0; $i < $n_kendala_ccr; $i++) { 
@@ -297,6 +300,7 @@
 					$index_pivot_baris_ccr = $i;
 				}
 			}
+			
 			//Mencari Pivot Kolom
 			$pivot_kolom_ccr = 100;
 			$rasio_ccr = 0;
@@ -324,6 +328,9 @@
 				}
 
 			//Menghitung Baris Baru
+				if (!ISSET($f_ccr_kendala)) {
+					$f_ccr_kendala = array();
+				}
 				//Baris yang berperan sebagai Pivot Baris
 				for ($i=1; $i <= $n_dmu ; $i++) { 
 					$f_ccr_kendala[$index_pivot_baris_ccr]['x'.$i] = $fungsi_kendala[$index_pivot_baris_ccr]['x'.$i] / $fungsi_kendala[$index_pivot_baris_ccr][$index_pivot_kolom_ccr];
@@ -408,13 +415,13 @@
 				if ($fungsi_ccr_kendala[$i]['b'] == 'x'.$j) {
 					$benchmark++;
 					if ($benchmark >1) {
-						echo "true";
+						//echo "true";
 						//Jika DMU yg menjadi benchmark lebih dari 1
 						for ($k=1; $k <= $n_var_input; $k++) { 
 							$rekomendasi[0]['x'.$k] += round($fungsi_ccr_kendala[$i]['ruas_kanan'] * $data_awal['dmu'.$j]['x'.$k]);
 						}
 					} else {
-						echo "salah";
+						//echo "salah";
 						//DMU yg menjadi benchmark hanya 1
 						for ($k=1; $k <= $n_var_input; $k++) { 
 							$rekomendasi[0]['x'.$k] = round($fungsi_ccr_kendala[$i]['ruas_kanan'] * $data_awal['dmu'.$j]['x'.$k]);
